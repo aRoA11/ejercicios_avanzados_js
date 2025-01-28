@@ -33,10 +33,13 @@ const users = [
   }
 ]
 let totalVolume = 0
-for (const sound of favoritesSounds)
-  for (const volume in sound) {
-    totalVolume = volume + totalVolume
+let totalCount = 0
+for (const sound of users)
+  for (const volumeKey in sound.favoritesSounds) {
+    totalVolume = sound.favoritesSounds[volumeKey].volume + totalVolume
+    totalCount++
   }
 {
 }
-console.log(totalVolume)
+const averageVolume = totalVolume / totalCount
+console.log(averageVolume)
